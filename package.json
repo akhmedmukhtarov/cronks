@@ -1,10 +1,21 @@
 {
   "name": "cronks",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "",
   "author": "",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "private": false,
   "license": "UNLICENSED",
   "scripts": {
