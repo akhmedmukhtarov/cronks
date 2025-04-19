@@ -3,6 +3,9 @@ import { Logger, OnModuleInit } from '@nestjs/common';
 import { Job, Queue } from 'bullmq';
 import { CRON_QUEUE_NAME } from './constants';
 
+/**
+ * @internal
+ */
 @Processor(CRON_QUEUE_NAME)
 export class CronProcessor extends WorkerHost implements OnModuleInit {
   constructor(@InjectQueue(CRON_QUEUE_NAME) private cronQueue: Queue) {
@@ -13,7 +16,7 @@ export class CronProcessor extends WorkerHost implements OnModuleInit {
     new Map();
 
   async onModuleInit() {
-    await this.cronQueue.obliterate({ force: true });
+    await this.cronQueue.obliterate({ force: true }).catch(() => {});
   }
 
   async process(job: Job): Promise<any> {

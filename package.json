@@ -1,15 +1,19 @@
 {
   "name": "cronks",
-  "version": "0.0.6",
+  "version": "0.0.12",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist/*"
-  ],
   "description": "",
   "author": "",
   "private": false,
   "license": "UNLICENSED",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
