@@ -13,7 +13,7 @@ export class CronProcessor extends WorkerHost implements OnModuleInit {
     new Map();
 
   async onModuleInit() {
-    await this.cronQueue.obliterate({ force: true });
+    await this.cronQueue.obliterate({ force: true }).catch(() => {});
   }
 
   async process(job: Job): Promise<any> {
