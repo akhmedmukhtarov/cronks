@@ -1,5 +1,5 @@
 import { BullModule } from '@nestjs/bullmq';
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Global, Module } from '@nestjs/common';
 import { CRON_QUEUE_NAME } from './constants';
 import { CronProcessor } from './processor';
 import { CronksService } from './service';
@@ -8,6 +8,7 @@ import { CronksService } from './service';
  * A NestJS module for scheduling and managing cron jobs using BullMQ.
  * Provides dynamic registration with Redis configuration.
  */
+@Global()
 @Module({})
 export class CronksModule {
   /**
